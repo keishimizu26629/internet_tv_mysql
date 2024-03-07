@@ -1,4 +1,4 @@
-#　Dockerを使用してMySQLの環境構築
+## Dockerを使用してMySQLの環境構築
 ローカル上にこのプロジェクトの環境クローンし、MySQLにデータを取り込む方法を記載します。
 
 ## 前提条件
@@ -28,4 +28,3 @@ docker exec -it db_internet_tv mysql -u root -p
 source /sql/load_data.sql
 ```
 このコマンドは、マウントした/sqlディレクトリ内のload_data.sqlファイルを実行し、CSVファイルからデータをMySQLデータベースに取り込みます。
-
