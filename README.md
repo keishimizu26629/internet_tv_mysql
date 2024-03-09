@@ -1,6 +1,6 @@
 ## はじめに
 データベースのER図は下記になります。
-![](./ER.drawio.svg)
+![ER Diagram](ER.drawio.svg)
 
 ## Dockerを使用してMySQLの環境構築
 ローカル上にこのプロジェクトの環境クローンし、MySQLにデータを取り込む方法を記載します。
