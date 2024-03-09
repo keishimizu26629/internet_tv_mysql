@@ -21,4 +21,4 @@ FROM
 GROUP BY
   P.genre
 ORDER BY
-  Average_Views DESC
+  Average_Views DESC;

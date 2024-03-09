@@ -56,3 +56,6 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+-- インデックスの作成
+CREATE INDEX idx_views_episode_id ON Views(episode_id);
