@@ -1,9 +1,75 @@
-## はじめに
-データベースのER図は下記になります。
+## データベース設計
+### テーブルの設計は下記になります。
+
+#### Users Table
+
+| カラム名   | データ型        | NULL | キー     | 初期値 | AUTO INCREMENT |
+|---------|--------------|------|--------|-------|----------------|
+| id      | INT          |      | PRIMARY |       | YES            |
+| nickname| VARCHAR(255) |      |        |       | NO             |
+| Plan    | VARCHAR(255) |      |        |       | NO             |
+
+#### Channel Table
+
+| カラム名 | データ型        | NULL | キー     | 初期値 | AUTO INCREMENT |
+|--------|--------------|------|--------|-------|----------------|
+| id     | INT          |      | PRIMARY |       | YES            |
+| name   | VARCHAR(255) |      |        |       | NO             |
+
+#### Programs Table
+
+| カラム名     | データ型     | NULL | キー     | 初期値 | AUTO INCREMENT |
+|------------|-----------|------|--------|-------|----------------|
+| id         | INT       |      | PRIMARY |       | YES            |
+| title      | VARCHAR(255) |      |        |       | NO             |
+| description| TEXT      | YES  |        |       | NO             |
+| genre      | VARCHAR(255) | YES  |        |       | NO             |
+
+#### Seasons Table
+
+| カラム名      | データ型     | NULL | キー     | 初期値 | AUTO INCREMENT | 外部キー       |
+|-------------|-----------|------|--------|-------|----------------|-------------|
+| id          | INT       |      | PRIMARY |       | YES            |             |
+| program_id  | INT       |      | FOREIGN |       | NO             | Programs(id) |
+| season_number| INT       |      |        |       | NO             |             |
+| season_title| VARCHAR(255) | YES  |        |       | NO             |             |
+| year        | INT       | YES  |        |       | NO             |             |
+
+#### Episodes Table
+
+| カラム名       | データ型     | NULL | キー     | 初期値 | AUTO INCREMENT | 外部キー     |
+|--------------|-----------|------|--------|-------|----------------|-----------|
+| id           | INT       |      | PRIMARY |       | YES            |           |
+| season_id    | INT       |      | FOREIGN |       | NO             | Seasons(id)|
+| episode_number| INT       |      |        |       | NO             |           |
+| title        | VARCHAR(255) |      |        |       | NO             |           |
+| description  | TEXT      | YES  |        |       | NO             |           |
+| duration     | INT       | YES  |        |       | NO             |           |
+
+#### Broadcasts Table
+
+| カラム名    | データ型      | NULL | キー     | 初期値 | AUTO INCREMENT | 外部キー       |
+|-----------|------------|------|--------|-------|----------------|-------------|
+| id        | INT        |      | PRIMARY |       | YES            |             |
+| channel_id| INT        | YES  | FOREIGN |       | NO             | Channel(id)  |
+| episode_id| INT        | YES  | FOREIGN |       | NO             | Episodes(id) |
+| start_time| DATETIME   |      |        |       | NO             |             |
+| end_time  | DATETIME   |      |        |       | NO             |             |
+
+#### Views Table
+
+| カラム名     | データ型      | NULL | キー     | 初期値 | AUTO INCREMENT | 外部キー      |
+|------------|------------|------|--------|-------|----------------|-------------|
+| id         | INT        |      | PRIMARY |       | YES            |             |
+| episode_id | INT        |      | FOREIGN |       | NO             | Episodes(id) |
+| user_id    | INT        |      | FOREIGN |       | NO             | Users(id)    |
+| watched_time| DATETIME  |      |        |       | NO             |             |
+
+### データベースのER図は下記になります。
 
 ![ER Diagram](ER.svg)
 
-実行ファイルは/sql内の「step3-..」ファイルになります。
+### 実行ファイルは/sql内の「step3-..」ファイルになります。
 ```
 ├── Dockerfile
 ├── ER.drawio.svg
