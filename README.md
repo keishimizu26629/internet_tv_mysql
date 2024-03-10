@@ -1,28 +1,29 @@
 ## はじめに
 データベースのER図は下記になります。
-![ER Diagram](ER.drawio.svg)
 
-## Dockerを使用してMySQLの環境構築
-ローカル上にこのプロジェクトの環境クローンし、MySQLにデータを取り込む方法を記載します。
+![ER Diagram](ER.svg)
 
 ## 前提条件
 - DockerおよびDocker Composeがインストールされていることを確認してください。
 - gitがインストールされていることを確認してください。
 
-## 1. git cloneを実行
+## Dockerを使用してMySQLの環境構築
+ローカル上にこのプロジェクトの環境クローンし、MySQLにデータを取り込む方法を記載します。
+
+### 1. git cloneを実行
 gitを使用して。Github上にあるコードをローカルPCに持ってきます。
 ターミナルから任意のプロジェクトに移動し、下記コードを実行します。
 ```bash
 git clone [URL]
 ```
 
-## 2. コンテナの起動
+### 2. コンテナの起動
 次のコマンドを使用して、定義したサービスのコンテナを起動します。
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
-## 3. データの取り込み
+### 3. データの取り込み
 コンテナが正常に起動した後、以下のコマンドを実行してMySQLコンテナにアクセスし、SQLファイルを使用してデータを取り込みます。
 ```bash
 docker exec -it db_internet_tv mysql -u root -p
