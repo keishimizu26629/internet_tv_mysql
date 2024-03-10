@@ -11,7 +11,6 @@ IGNORE 1 ROWS;
 -- Channel.csvのデータをインポート
 LOAD DATA INFILE '/var/lib/mysql-files/Channel.csv'
 INTO TABLE Channel
-CHARACTER SET utf8
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
