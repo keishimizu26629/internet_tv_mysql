@@ -3,6 +3,32 @@
 
 ![ER Diagram](ER.svg)
 
+実行ファイルは/sql内の「step3-..」ファイルになります。
+```
+├── Dockerfile
+├── ER.drawio.svg
+├── ER.svg
+├── compose.yaml
+├── csv
+│   ├── Broadcasts.csv
+│   ├── Channel.csv
+│   ├── Episodes.csv
+│   ├── Programs.csv
+│   ├── Seasons.csv
+│   ├── Users.csv
+│   └── Views.csv
+└── sql
+    ├── init.sql
+    ├── load_data.sql
+    ├── step3-1.sql
+    ├── step3-2.sql
+    ├── step3-3.sql
+    ├── step3-4.sql
+    ├── step3-5.sql
+    ├── step3-6.sql
+    └── test.sql
+```
+
 ## 前提条件
 - DockerおよびDocker Composeがインストールされていることを確認してください。
 - gitがインストールされていることを確認してください。
